@@ -1,13 +1,10 @@
-# Wave
+# Precision
 
-Wave is a [Ghost](https://github.com/TryGhost/Ghost) theme dedicated to podcasters. Share your voice and words with your audience.
+Precision is a [Ghost](https://github.com/TryGhost/Ghost) theme aimed at simple brochure sites.  Forked from [Wave](https://github.com/TryGhost/Wave).
 
-**Demo: https://wave.ghost.io**
+* hide/enable search.
+* Nav will always have a bold Contact Button.
 
-# Instructions
-
-1. [Download this theme](https://github.com/TryGhost/Wave/archive/main.zip)
-2. Log into Ghost, and go to the `Design` settings area to upload the zip file
 
 # Development
 
@@ -28,10 +25,6 @@ The `zip` Gulp task packages the theme files into `dist/wave.zip`, which you can
 ```bash
 yarn zip
 ```
-
-# Contribution
-
-This repo is synced automatically with [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo. If you're looking to contribute or raise an issue, head over to the main repository [TryGhost/Themes](https://github.com/TryGhost/Themes) where our official themes are developed.
 
 ## Copyright & License
 
