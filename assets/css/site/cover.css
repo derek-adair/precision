@@ -1,7 +1,7 @@
 .site-cover {
     position: relative;
     display: flex;
-    min-height: 480px;
+    min-height: 240px;
     padding: 8vmin var(--gap);
 }
 
@@ -12,6 +12,14 @@
     margin: auto;
     color: var(--white-color);
     text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.cover-content h1{ 
+    font-size: 2.4rem;
+    color: white; 
+    text-decoration: underline;
+    text-decoration-color: var(--brand-color);
 }
 
 .cover-logo {
@@ -21,8 +29,7 @@
 }
 
 .cover-description {
-    font-size: 2.4rem;
-    font-weight: 600;
     line-height: 1.5;
+    font-weight: 600;
     word-break: break-word;
 }
