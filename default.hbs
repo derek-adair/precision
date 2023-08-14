@@ -38,10 +38,10 @@
 
             <nav class="gh-head-menu">
                 <ul class="nav">
-                {{navigation}}
                 <li>
                     <a href="/appointments/" class="btn btn-primary">Book An Appointment</a>
                 </li>
+                {{navigation}}
                 </ul>
                 {{#unless @site.members_enabled}}
                     {{#match @custom.navigation_layout "Stacked"}}
