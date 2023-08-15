@@ -104,3 +104,83 @@ function player() {
         speedButton.text(playerSpeed + 'x');
     });
 }
+//
+// register modal component
+Vue.component("contact", {
+  template: "#contact-template",
+  data: function(){
+    return {
+      showForm: true,
+		  errors: [],
+      /* Form model */
+      name: null,
+      phone: null,
+      from: null,
+      year: null,
+      make: null,
+      model: null,
+      summary: null,
+    }
+  },
+  methods: {
+    toggleShowForm(){
+        this.showForm = !this.showForm
+    },
+    submitForm: function (event) {
+      let destination = event.target.action,
+        app = this
+      ;
+
+
+			if (!this.name){
+				this.errors.push("Name Required")
+			}
+
+			if (!this.phone){
+				this.errors.push("What is your phone number?")
+			} else if (!this.validPhone(this.phone)) {
+			        this.errors.push('Valid phone number required.');
+			}
+
+			if (this.errors.length === 0){
+
+      axios(destination, {
+        headers: {
+          'Access-Control-Allow-Origin': 'https://contact.precisionimportmechanic.com/'
+        },
+        method: 'POST',
+        data: {
+          'name': this.name,
+          'subject': [this.name, this.phone].join(" "),
+          'text': [
+            "Name: " + this.name,
+            "Number: " + this.phone,
+            "Year: " + this.year,
+            "Make: " + this.make,
+            "Model: " + this.model,
+            "Summary: " + this.summary,
+          ].join("\n"),
+          'from': this.from
+        }	
+      })
+        .then(function(response){
+          app.showForm = false
+        })
+        .catch(function(error){
+          console.log(error)
+        })
+			}
+    },
+	  validPhone: function (phone) {
+      var re = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+      return re.test(phone);
+    }
+
+
+  }
+});
+
+// start app
+new Vue({
+  el: "#vue-wrapper",
+});
